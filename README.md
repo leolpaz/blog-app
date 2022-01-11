@@ -1,5 +1,8 @@
-# OOP-School-Library
-A blog app made on rails
+# RoR Blog App
+
+> A blog app made on ruby on rails with users and posts functionality
+
+On this milestone I do the basic setup for the project with routes and controllers
 
 ## Built With
 
