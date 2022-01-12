@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
-  describe "GET /index" do
-    before(:each) { get("/users/posts") }
-    it "Gets an ok http status response" do
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /index' do
+    before(:each) { get('/users/posts') }
+    it 'Gets an ok http status response' do
       expect(response).to have_http_status(:ok)
     end
     it 'renders the index template' do
@@ -15,7 +15,7 @@ RSpec.describe "Posts", type: :request do
   end
 
   describe 'GET /show' do
-    before(:each) { get("/users/posts/1") }
+    before(:each) { get('/users/posts/1') }
 
     it 'render post details correctly' do
       expect(response).to have_http_status(:ok)

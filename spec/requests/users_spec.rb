@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Users', type: :request do
+  describe 'GET /index' do
     before(:each) { get root_path }
-    it "Gets an ok http status response" do
+    it 'Gets an ok http status response' do
       expect(response).to have_http_status(:ok)
     end
     it 'renders the index template' do
@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :request do
   end
 
   describe 'GET /show' do
-    before(:each) { get("/users") }
+    before(:each) { get('/users') }
 
     it 'render user details correctly' do
       expect(response).to have_http_status(:ok)
