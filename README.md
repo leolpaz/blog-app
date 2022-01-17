@@ -2,7 +2,7 @@
 
 > A blog app made on ruby on rails with users and posts functionality
 
-On this milestone I do the basic setup for the project with routes and controllers
+On this milestone I create models for post, user, comments and likes
 
 ## Built With
 
