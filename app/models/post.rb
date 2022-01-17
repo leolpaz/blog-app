@@ -4,9 +4,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   def update_post_counter
-    if user.posts_counter.nil?
-      user.posts_counter = 0
-    end
+    user.posts_counter = 0 if user.posts_counter.nil?
     user.posts_counter += 1
     user.save
   end
