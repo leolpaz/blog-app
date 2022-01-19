@@ -7,3 +7,10 @@
 <% @post.comments.each do |comment|%>
   <p><%= comment.user.name %>: <%= comment.text %></p>
 <% end %>
+<%= link_to [:new_post_comment, :post_id=>@post.id] do %>
+  <button>Create new comment</button>
+<% end %>
+<%= form_with url: [:post_likes, post_id: @post.id]  do |f|%>
+  <%= f.submit "Like" %>
+<% end %>
+

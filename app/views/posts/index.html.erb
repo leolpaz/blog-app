@@ -1,11 +1,14 @@
 <h1>Post list</h1>
 <%= render "users/user" %>
+<%= link_to [:new_user_post] do %>
+  <button>Create new post</button>
+<% end %>
 <% @user.posts.each do |post| %>
   <%= link_to [post.user, post] do %></h2>
     <div>
       <h3><%= post.title %></h3>
       <p><%= post.text %></p>
-      <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
+      <span>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
     </div>
     <% post.recently_commented.each do |comment| %>
       <p><%= comment.user.name %>: <%= comment.text %></p>
