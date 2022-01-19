@@ -1,0 +1,7 @@
+<% @user.recently_posted.each do |post|%>
+  <li>
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+    <span>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+  </li>
+<% end %>

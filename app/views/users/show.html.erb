@@ -1,2 +1,10 @@
-<h1>User: more</h1>
-<p>Here will be a list of user info</p>
+<h1>User details</h1>
+<%= render "user" %>
+<ul>
+  <li>
+    <h2>Bio</h2>
+    <p><%= @user.bio %></p>
+  </li>
+  <%= render "posts" %>
+</ul>
+<button><%= link_to "See all posts", [@user, :posts] %></button>
