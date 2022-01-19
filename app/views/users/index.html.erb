@@ -2,9 +2,9 @@
 <ul>
   <% @users.each do |user|%>
     <li>
-      <img src="<% user.photo %>" alt="user photo">
+      <img src="<%= user.photo %>" alt="user photo">
       <h2><%= link_to user.name, user %></h2>
-      <span>Number of posts: <% user.posts_counter %></span>
+      <span>Number of posts: <%= user.posts_counter %></span>
     </li>
   <% end %>
 </ul>

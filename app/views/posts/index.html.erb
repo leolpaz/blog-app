@@ -5,6 +5,7 @@
     <div>
       <h3><%= post.title %></h3>
       <p><%= post.text %></p>
+      <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
     </div>
     <% post.recently_commented.each do |comment| %>
       <p><%= comment.user.name %>: <%= comment.text %></p>
