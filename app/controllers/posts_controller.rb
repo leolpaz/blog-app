@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
     @post = Post.new
   end
 
@@ -16,6 +15,7 @@ class PostsController < ApplicationController
     current_user = User.find(params[:user_id])
     @post = current_user.posts.new(post_params.merge(user_id: current_user.id))
     if @post.save
+      @post.update_post_counter
       redirect_to [@post.user, @post]
     else
       redirect_to [:new_user_post]

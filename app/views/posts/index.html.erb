@@ -1,7 +1,7 @@
 <h1>Post list</h1>
 <%= render "users/user" %>
 <%= link_to [:new_user_post] do %>
-  <button>Placeholder Create</button>
+  <button>Create new post</button>
 <% end %>
 <% @user.posts.each do |post| %>
   <%= link_to [post.user, post] do %></h2>
