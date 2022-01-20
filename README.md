@@ -2,7 +2,7 @@
 
 > A blog app made on ruby on rails with users and posts functionality
 
-On this milestone I create views for post and user
+On this milestone I create models validation, tests for the models and solve n+1 problems 
 
 ## Built With
 
