@@ -29,7 +29,4 @@ RSpec.describe User, type: :model do
     expect(@u.recently_posted[1].title).to eq 'test3'
     expect(@u.recently_posted[2].title).to eq 'test2'
   end
-
-
-
 end
