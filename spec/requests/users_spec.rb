@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
-    before(:each) { get root_path }
+  describe 'GET root' do
+    before(:each) do
+      @u = User.new(name: 'test', posts_counter: 0)
+      @u.save
+      get('/')
+    end
     it 'Gets an ok http status response' do
       expect(response).to have_http_status(:ok)
     end
@@ -10,12 +14,16 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('index')
     end
     it 'includes the right placeholder' do
-      expect(response.body).to include('This is where the users list will be shown')
+      expect(response.body).to include('User list')
     end
   end
 
   describe 'GET /show' do
-    before(:each) { get('/users') }
+    before(:each) do
+      @u = User.new(name: 'test', posts_counter: 0, id: 1)
+      @u.save
+      get('/users/1')
+    end
 
     it 'render user details correctly' do
       expect(response).to have_http_status(:ok)
@@ -24,7 +32,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('show')
     end
     it 'includes the right placeholder' do
-      expect(response.body).to include('Here will be a list of user info')
+      expect(response.body).to include('User details')
     end
   end
 end
