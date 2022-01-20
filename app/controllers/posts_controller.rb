@@ -13,12 +13,14 @@ class PostsController < ApplicationController
 
   def create
     current_user = User.find(params[:user_id])
-    @post = current_user.posts.new(post_params.merge(user_id: current_user.id))
+    @post = current_user.posts.new(post_params.merge(user_id: current_user.id, comments_counter: 0, likes_counter: 0))
     if @post.save
       @post.update_post_counter
+      flash[:notice] = 'Your post has been created.'
       redirect_to [@post.user, @post]
     else
       redirect_to [:new_user_post]
+      flash[:alert] = 'Your post failed to create, make sure you properly filled the title'
     end
   end
 

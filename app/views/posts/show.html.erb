@@ -1,4 +1,9 @@
 <h1>Posts: more</h1>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <div>
   <h3><%= @post.title %> by <%= @post.user.name %></h3>
   <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
