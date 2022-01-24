@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_131634) do
     t.string "name"
     t.string "photo"
     t.text "bio"
-    t.integer "posts_counter"
+    t.integer "posts_counter", default: 0
     t.string "address"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
