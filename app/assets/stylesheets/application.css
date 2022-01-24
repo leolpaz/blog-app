@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.signup-form,
+.new_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
