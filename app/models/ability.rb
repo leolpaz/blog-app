@@ -6,8 +6,10 @@ class Ability
   def initialize(user)
     can :read, Post
     return unless user.present?
-    can :manage, Post, author_id: user.id || user.role: "admin"
+    can :manage, Post, user_id: user.id
     can :create, Comment
-    can :manage, Comment, author_id: user.id || user.role: "admin"
+    can :manage, Comment, user_id: user.id
+    return unless user.admin?
+    can :manage, :all
   end
 end
