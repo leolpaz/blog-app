@@ -27,6 +27,9 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
+    respond_to do |format|
+      format.html { redirect_to [post.user, :posts], notice: 'Post was successfully deleted.' }
+    end
   end
 
   private
