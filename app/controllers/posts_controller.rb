@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).limit(5)
@@ -13,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user = User.find(params[:user_id])
     @post = current_user.posts.new(post_params.merge(user_id: current_user.id, comments_counter: 0, likes_counter: 0))
     if @post.save
       @post.update_post_counter
@@ -22,6 +22,14 @@ class PostsController < ApplicationController
     else
       redirect_to [:new_user_post]
       flash[:alert] = 'Your post failed to create, make sure you properly filled the title'
+    end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    respond_to do |format|
+      format.html { redirect_to [post.user, :posts], notice: 'Post was successfully deleted.' }
     end
   end
 

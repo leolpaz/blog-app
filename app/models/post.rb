@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
   belongs_to :user
-  has_many :likes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def update_post_counter
     user.posts_counter = 0 if user.posts_counter.nil?
