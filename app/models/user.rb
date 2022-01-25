@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   def admin?
-    self.role == 'admin'
+    role == 'admin'
   end
 
   def recently_posted

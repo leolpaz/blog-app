@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       flash[:alert] = 'Your post failed to create, make sure you properly filled the title'
     end
   end
-  
+
   def destroy
     post = Post.find(params[:id])
     post.destroy
