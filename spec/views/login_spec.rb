@@ -5,7 +5,7 @@ RSpec.describe 'Login', type: :feature do
     visit user_session_path
     User.create(name: 'Test', email: 'test@test.com', password: '123456', confirmed_at: Time.now)
   end
-  describe "tests the login page" do
+  describe 'tests the login page' do
     it 'has username and password inputs and log in button' do
       expect(page).to have_field 'Email'
       expect(page).to have_field 'Password'
